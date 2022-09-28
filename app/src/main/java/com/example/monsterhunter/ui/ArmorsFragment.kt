@@ -34,8 +34,6 @@ class ArmorsFragment : Fragment() {
         setupSearchView()
         setupList()
         setupObservers()
-
-        viewModel.getArmors()
     }
 
     private fun setupObservers() {

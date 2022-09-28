@@ -14,9 +14,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction().apply {
-            add(binding.fragmentContainer.id, ArmorsFragment())
-            commit()
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().apply {
+                add(binding.fragmentContainer.id, ArmorsFragment())
+                commit()
+            }
+        } else {
+            supportFragmentManager.fragments.last()
         }
     }
 }

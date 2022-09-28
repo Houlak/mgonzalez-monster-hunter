@@ -20,6 +20,10 @@ class ArmorsViewModel(private val armorRepository: ArmorRepository) : ViewModel(
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 
+    init {
+        getArmors()
+    }
+
     fun getArmors() {
         viewModelScope.launch {
             _loading.value = true
