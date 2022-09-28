@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_vertical_default">16dp</dimen>
+    <dimen name="radius_search_view">24dp</dimen>
+    <dimen name="radius_default">8dp</dimen>
+</resources>
