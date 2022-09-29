@@ -7,6 +7,14 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="title.bottom_sheet" parent="title">
+        <item name="android:textColor">@color/color_primary_dark</item>
+    </style>
+
+    <style name="title.bottom_sheet.subtitle" parent="title.bottom_sheet">
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="search_view">
         <item name="android:background">@drawable/search_view_background</item>
     </style>

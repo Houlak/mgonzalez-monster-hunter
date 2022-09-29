@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.monsterhunter.data.models.Armor
 import com.example.monsterhunter.databinding.ArmorsListItemBinding
 
-class ArmorsAdapter : ListAdapter<Armor, ArmorsAdapter.ViewHolder>(ArmorsDiffUtilCallback()) {
+class ArmorsAdapter(private val onItemClickListener: (Armor) -> Unit) : ListAdapter<Armor, ArmorsAdapter.ViewHolder>(ArmorsDiffUtilCallback()) {
 
-    class ViewHolder(private val binding: ArmorsListItemBinding) :
+    class ViewHolder(private val binding: ArmorsListItemBinding, private val onItemClickListener: (Armor) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Armor) {
             binding.name.text = item.name
@@ -22,6 +22,10 @@ class ArmorsAdapter : ListAdapter<Armor, ArmorsAdapter.ViewHolder>(ArmorsDiffUti
                 binding.typeIcon.setImageResource(typeIconRes)
             } ?: run {
                 binding.typeIcon.visibility = View.INVISIBLE
+            }
+
+            binding.root.setOnClickListener {
+                onItemClickListener(item)
             }
         }
     }
@@ -39,7 +43,8 @@ class ArmorsAdapter : ListAdapter<Armor, ArmorsAdapter.ViewHolder>(ArmorsDiffUti
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            ArmorsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ArmorsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            onItemClickListener
         )
     }
 

@@ -1,5 +1,6 @@
 package com.example.monsterhunter.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,8 @@ class ArmorsFragment : Fragment() {
         get() = _binding!!
 
     private val viewModel by viewModel<ArmorsViewModel>()
+
+    private var listener: OnFragmentInteractionListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -70,7 +73,27 @@ class ArmorsFragment : Fragment() {
     }
 
     private fun setupList() {
-        binding.armorsRecyclerView.adapter = ArmorsAdapter()
+        binding.armorsRecyclerView.adapter = ArmorsAdapter { armor ->  
+            listener?.showArmorDetails(armor)
+        }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if(context is OnFragmentInteractionListener) {
+            listener = context
+        } else {
+            throw NotImplementedError("$context Must implement interface ArmorsFragment.OnFragmentInteractionListener")
+        }
+    }
+
+    override fun onDetach() {
+        listener = null
+        super.onDetach()
+    }
+
+    interface OnFragmentInteractionListener {
+        fun showArmorDetails(armor: Armor)
     }
 
 }

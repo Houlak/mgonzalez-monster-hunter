@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/handler"
+        android:layout_width="100dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/margin_vertical_default"
+        android:background="@color/color_secondary_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/handler"
+        tools:srcCompat="@drawable/ic_head" />
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/title.bottom_sheet"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_vertical_default"
+        android:layout_marginTop="@dimen/margin_vertical_default"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon"
+        tools:text="Lorem ipsum" />
+
+    <TextView
+        android:id="@+id/rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_vertical_default"
+        android:background="@drawable/search_view_background"
+        android:padding="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        tools:text="Rank: HIGH" />
+
+    <ImageView
+        android:id="@+id/decoration_slots_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/margin_vertical_default"
+        app:layout_constraintEnd_toStartOf="@+id/shield_icon"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rank"
+        app:srcCompat="@drawable/ic_deco" />
+
+    <ImageView
+        android:id="@+id/shield_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/decoration_slots_icon"
+        app:layout_constraintTop_toTopOf="@id/decoration_slots_icon"
+        app:srcCompat="@drawable/ic_shield" />
+
+    <TextView
+        android:id="@+id/decoration_slots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_vertical_default"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/decoration_slots_icon"
+        app:layout_constraintStart_toStartOf="@id/decoration_slots_icon"
+        app:layout_constraintTop_toBottomOf="@id/decoration_slots_icon"
+        tools:text="100" />
+
+    <TextView
+        android:id="@+id/shield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@id/shield_icon"
+        app:layout_constraintStart_toStartOf="@id/shield_icon"
+        app:layout_constraintTop_toBottomOf="@id/shield_icon"
+        tools:text="100" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
